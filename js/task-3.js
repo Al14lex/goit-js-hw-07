@@ -1,21 +1,9 @@
-const profile = {
-    username: "Jacob",
-    playTime: 300,
-    changeUsername(newName) {
-        this.username = newName;
-    },
-    updatePlayTime(hours) {
-        this.playTime += hours;
-    },
-    getInfo() {
-        return `${this.username} has ${this.playTime} active hours!`;
-    }
-};
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('name-input');
+  const output = document.getElementById('name-output');
 
-console.log(profile.getInfo()); // "Jacob has 300 active hours!"
-
-profile.changeUsername("Marco");
-console.log(profile.getInfo()); // "Marco has 300 active hours!"
-
-profile.updatePlayTime(20);
-console.log(profile.getInfo()); // "Marco has 320 active hours!"
+  input.addEventListener('input', () => {
+    const trimmedValue = input.value.trim();
+    output.textContent = trimmedValue ? trimmedValue : 'Anonymous';
+  });
+});

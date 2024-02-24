@@ -1,12 +1,15 @@
+document.addEventListener('DOMContentLoaded', () => {
+ 
+    const categories = document.querySelectorAll('#categories .item');
+  
+    console.log(`Number of categories: ${categories.length}`);
+    
+    categories.forEach(category => {
 
-
-
-function isEnoughCapacity(products, containerSize) {
-    const totalQuantity = Object.values(products).reduce((acc, val) => acc + val, 0);
-
-    return totalQuantity <= containerSize;
-}
-console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
-console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)); // false
-console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)); // true
-console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // false
+      const title = category.querySelector('h2').textContent;
+      
+      const elementsCount = category.querySelectorAll('ul li').length;
+      
+      console.log(`Category: ${title}\n Elements: ${elementsCount}`);
+    });
+});
